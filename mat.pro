@@ -1,5 +1,6 @@
 QT -= gui
 QT += xml
+QT += concurrent
 
 CONFIG += c++17 console
 CONFIG -= app_bundle
@@ -7,7 +8,7 @@ CONFIG -= app_bundle
 LIBS += -L/usr/local/lib/ -lmatio
 INCLUDEPATH += /usr/local/include
 
-INCLUDEPATH += /home/operator/qt-projects/UtilitiesLibrary
+INCLUDEPATH += /home/operator/qt-projects/UtilitiesLibrary/src/ConfigurationParser/mat/headers/
 LIBS += -L"/home/operator/qt-projects/UtilitiesLibrary/lib" \
         -lutilities
 

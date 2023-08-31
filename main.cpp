@@ -2,7 +2,7 @@
 #include <iostream>
 #include <matio.h>
 
-#include "/home/operator/qt-projects/UtilitiesLibrary/src/ConfigurationParser/mat/sources/MatConfigParser.cpp"
+#include <MatConfigParser.h>
 
 int main() {
     matConfigParser configParser;
@@ -10,7 +10,7 @@ int main() {
 
     std::vector<std::string> UserVariables;
 
-    UserVariables.reserve(2);
+    UserVariables.reserve(1);
     UserVariables.push_back("config_struct");
     UserVariables.push_back("double_array2");
 
@@ -22,9 +22,6 @@ int main() {
 
     auto duration = std::chrono::duration_cast<std::chrono::seconds>(end - start);  // süre hesaplaması
     std::cout << "The function took: " << duration.count() << " seconds." << std::endl; //süreyi yazdır
-
-
-
 
     double* double_array = std::any_cast<double*>(TypeCastedUserVariables["double_array"]);
     double* BeamNumber = std::any_cast<double*>(TypeCastedUserVariables["BeamNumber"]);
@@ -50,38 +47,25 @@ int main() {
 
     std::cout << "\n" << "double_array2: " << double_array2[0] << "\n\n";
 
-//   _______________________________________________________________________
-//  |-----------------------------------------------------------------------|
-//  |-----------------------------------------------------------------------|
-//   -----------------------------------------------------------------------
 
-//    mat_t *matfp = Mat_Open("data-me.mat", MAT_ACC_RDONLY);
-//    matvar_t *matvar = Mat_VarRead(matfp, "simple_string");
+    // -----------------------------------------
 
-//    if (matvar != NULL) {
-//        if (matvar->class_type == MAT_C_CHAR && matvar->data_type == MAT_T_UINT16) {
-//            uint16_t* uint16Data = static_cast<uint16_t*>(matvar->data);
-//            size_t numElements = matvar->dims[0] * matvar->dims[1];
-
-//            // Convert the uint16_t data to a C++ wstring (wide string)
-//            std::wstring wideString(uint16Data, uint16Data + numElements);
-
-//            // Optionally convert wstring to regular string if needed
-//            // This will work correctly only for characters representable in the current locale.
-//            std::string value(wideString.begin(), wideString.end());
-
-//            // Now you have the string value stored in 'value'
-//            std::cout << "Read value: " << value << std::endl;
-
-//        } else {
-//            // Handle error or perform another task
-//        }
-//        Mat_VarFree(matvar);
-//    } else {
-//        // Variable not found in the MAT file
+//    // Open the MAT file
+//    mat_t *matfp = Mat_Open("data-me.mat", 0);
+//    if (NULL == matfp) {
+//        std::cerr << "Error opening MAT file: " << "data-me.mat" << "\n";
+//        exit(-1);
 //    }
 
-//    Mat_Close(matfp);
+//    auto start = std::chrono::high_resolution_clock::now(); // başlangıç süresi
+
+//    matvar_t* configStruct = Mat_VarRead(matfp, "config_struct");
+//    //matvar_t* doubleArray2 = Mat_VarRead(matfp, "double_array2");
+
+//    auto end = std::chrono::high_resolution_clock::now();   // bitiş süresi
+
+//    auto duration = std::chrono::duration_cast<std::chrono::seconds>(end - start);  // süre hesaplaması
+//    std::cout << "The function took: " << duration.count() << " seconds." << std::endl; //süreyi yazdır
 
     return 0;
 }
