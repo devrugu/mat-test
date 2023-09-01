@@ -1,6 +1,5 @@
 QT -= gui
-QT += xml
-QT += concurrent
+QT += xml concurrent
 
 CONFIG += c++17 console
 CONFIG -= app_bundle
