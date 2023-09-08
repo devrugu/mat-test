@@ -10,9 +10,9 @@ int main() {
 
     std::vector<std::string> UserVariables;
 
-    UserVariables.reserve(1);
+    //UserVariables.reserve(2);
     UserVariables.push_back("config_struct");
-    //UserVariables.push_back("double_array2");
+    UserVariables.push_back("double_array2");
 
     std::map<std::string, std::any> TypeCastedUserVariables;
 
@@ -33,7 +33,7 @@ int main() {
     float* single_array = std::any_cast<float*>(TypeCastedUserVariables["single_array"]);
     double* random_array = std::any_cast<double*>(TypeCastedUserVariables["random_array"]);
 
-    //double* double_array2 = std::any_cast<double*>(TypeCastedUserVariables["double_array2"]);
+    double* double_array2 = std::any_cast<double*>(TypeCastedUserVariables["double_array2"]);
 
     std::cout << "\n" << "double_array: " << double_array[0];
     std::cout << "\n" << "BeamNumber: " <<BeamNumber[0];
@@ -45,7 +45,7 @@ int main() {
     std::cout << "\n" << "single_array: " << single_array[0];
     std::cout << "\n" << "random_array: " << random_array[0] << "\n";
 
-    //std::cout << "\n" << "double_array2: " << double_array2[0] << "\n\n";
+    std::cout << "\n" << "double_array2: " << double_array2[0] << "\n\n";
 
 
     // -----------------------------------------

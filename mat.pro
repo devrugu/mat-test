@@ -26,6 +26,7 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 DISTFILES += \
     config.mat \
     data-me.mat \
-    data.mat
+    data.mat \
+    generated-mat-file.mat
 
 HEADERS +=
